@@ -13,7 +13,7 @@ _This webpage allows users to input toppings and a size for a pizza. These input
 ## Specifications
 | Behavior | Input    | Output   |
 | -------- | -------- | -------- |
-| The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Toppings: "Cheese" Size "Medium" | "The cost of your pizza is $8.00." |
+| The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese"  | "The cost of your pizza is $5.00." |
 
 ## Setup/Installation Requirements
 
