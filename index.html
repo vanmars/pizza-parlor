@@ -22,13 +22,14 @@
     <!-- Form -->
     <div class="card-group">
       <div class="card">
-        <h6 class="lead">Menu</h6>
+        <h4>Menu</h4>
       </div>
       <div class="card">
-        <h6 class="lead">Order Here!</h6>
+        <h4>Order Here!</h4>
         <form id="orderForm">
+          <!-- Size Selection -->
           <div class="form-group">
-            <!-- Size Selection -->
+            <label class="lead">Select Your Size:</label>
             <select name="size" id="size">
               <option value="1">Small</option>
               <option value="2">Medium</option>
@@ -38,22 +39,21 @@
           </div>
           <!-- Toppings Selection -->
           <div class="form-group">
-            <select name="toppings" id="toppings">
-              <option value="1">Cheese</option>
-              <option value="2">Peppers</option>
-              <option value="3">Mushroom</option>
-              <option value="4">Pineapple</option>
-              <option value="5">Pepperoni</option>
-              <option value="6">Sausage</option>
-              <option value="7">Ham</option>
-            </select>
+            <p class="lead">Select Your Toppings:</p>
+            <input type="checkbox" name="topping" value="cheese">Cheese<br>
+            <input type="checkbox" name="topping" value="peppers">Peppers<br>
+            <input type="checkbox" name="topping" value="mushroom">Mushroom<br>
+            <input type="checkbox" name="topping" value="pineapple">Pineapple<br>
+            <input type="checkbox" name="topping" value="pepperoni">Pepperoni<br>
+            <input type="checkbox" name="topping" value="sausage">Sausage<br>
+            <input type="checkbox" name="topping" value="ham">Ham<br>
           </div>
           <button class="submit">Calculate Price</button>
         </form>
       </div>
       <!-- Order Details -->
       <div class="card">
-        <h6 class="lead">Order Details</h6>
+        <h4>Order Details</h4>
         <p id="returnPar">Your order total: $<span id="returnSpan"></span>
       </div>
     </div>

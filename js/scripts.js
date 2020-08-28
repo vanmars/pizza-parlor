@@ -9,13 +9,13 @@ let sizeCost = {
 };
 
 let toppingsCost = {
-  1: 0.50,    // cheese
-  2: 1.00,      // peppers
-  3: 1.25,      // mushrooms
-  4: 1.50,    // pineapple
-  5: 1.00,      // pepperoni
-  6: 1.50,    // sausage
-  7: 2.00       // hame       
+  cheese: 0.50,    
+  peppers: 1.00,      
+  mushroom: 1.25,      
+  pineapple: 1.50,    
+  pepperoni: 1.00,     
+  sausage: 1.50,    
+  ham : 2.00             
 };
 
 // Pizza Constructor
@@ -26,17 +26,15 @@ function Pizza (size, toppings){
 
 // Pizza Calculate Cost Method 
 Pizza.prototype.calculateCost = function(){
-  // // Size
-  // let sizePrice = toppingsCost[this.size];
-  // // Toppings
-  // let toppingsPrice = 0;
-  // for (topping of this.toppings) {
-  //   toppingsPrice += toppingsCost[topping]
-  // };
-  // return toppingsPrice + sizePrice;
-  return (sizeCost[this.size]+ toppingsCost[this.toppings]).toFixed(2)
+  // Size
+  let sizePrice = sizeCost[this.size];
+  // Toppings
+  let toppingsPrice = 0;
+  for (topping of this.toppings) {
+    toppingsPrice += toppingsCost[topping]
+  };
+  return (sizePrice + toppingsPrice).toFixed(2);
 };
-
 
 // User Interface Logic
 $(document).ready(function(){
@@ -46,14 +44,19 @@ $(document).ready(function(){
 
     // Capture Form Content
     const sizeInput = $("#size").val();
-    const toppingsInput = $("#toppings").val(); 
+    const toppingsInput = [];
+    $("input:checkbox:checked").each(function(){
+      const topping = $(this).val();
+      toppingsInput.push(topping)
+    });
 
     // Create New Pizza Object with User Input
     let newPizza = new Pizza(sizeInput, toppingsInput);
 
-    // Calculate Cost of Pizza and Displa(y to Screen
+    // Calculate Cost of Pizza and Display to Screen
     let newPrice = newPizza.calculateCost();
     $("#returnSpan").text(newPrice);
     $("#returnPar").show();
+
   });
 });
