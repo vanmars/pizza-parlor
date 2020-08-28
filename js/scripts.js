@@ -1,6 +1,7 @@
-// -------------- //
+// BUGS
+// 1. Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted.
+
 // BUSINESS LOGIC //
-// -------------- //
 
 // UserBook Constructor ---------------
 function UserBook () {
@@ -59,10 +60,10 @@ function ShoppingCart () {
   this.pizzaOrder = [];
 };
 
+// Shopping Cart Prototype: Add a Pizza Order
 ShoppingCart.prototype.addPizzaOrder = function(pizza){
   this.pizzaOrder.push(pizza);
 }
-
 
 // Objects to Store Costs
 let sizeCost = {
@@ -88,7 +89,7 @@ function Pizza (size, toppings){
   this.toppings = toppings
 };
 
-// Pizza Calculate Cost Method 
+// Pizza Prototype: Calculate Cost Method 
 Pizza.prototype.calculateCost = function(){
   // Size
   let sizePrice = sizeCost[this.size];
@@ -109,18 +110,19 @@ $(document).ready(function(){
   // Order Card Event Handler
   $(".orderCard").click(function(){
     // Show Shopping Cart Div
-    $(".orderButtonDiv").slideUp();
+    $(".orderAndMenuCardsDiv").slideUp();
     $(".customerCart").slideDown();
 
     // Create new Shopping Cart
     let newCart = new ShoppingCart();
 
     // Shopping Cart Event Handlers
+    // Add Pizza
     $("#addPizzaButton").click(function(){
       $(".pizzaOrderOptionsDiv").show();
 
-      // Calculate Pizza Price
-      $("form#pizzaPriceForm").submit(function(event){
+      // Store Pizza Form Input
+      $("form#pizzaOrderForm").submit(function(event){
         event.preventDefault();
         // Capture Form Content
         const sizeInput = $("#size").val();
@@ -133,25 +135,19 @@ $(document).ready(function(){
         // Create New Pizza Object with User Input
         let newPizza = new Pizza(sizeInput, toppingsInput);
 
-        // Calculate Cost of Pizza and Display to Screen
+        // Calculate Cost of Pizza 
         let newPrice = newPizza.calculateCost();
-        $("#pizzaPriceReturnSpan").text(newPrice);
-        $(".pizzaPriceReturnDiv").show();
 
         // Add Pizza to Cart
-        $("button#addPizzaToCart").click(function(){
-          // Add pizza to order
-          newCart.addPizzaOrder(newPizza)
-          // New item should show up in pizza shopping cart
-          $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join (", ")  + " - $" + newPizza.price + "</li>");
-          // Pizza Order Form Should Close
-          $("form#pizzaPriceForm").reset();
-          $(".pizzaPriceReturnDiv").slideUp();
-          $(".pizzaOrderOptionsDiv").slideUp();
-        }) 
+        newCart.addPizzaOrder(newPizza)
+        
+        // New item should show up in pizza shopping cart
+        $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
+        
+        // Pizza Order Form Should Close
+        $("form#pizzaOrderForm").reset();
+        $(".pizzaOrderOptionsDiv").slideUp(); 
       });
-
-      });
-
+    });
   });
 });

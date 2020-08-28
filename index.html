@@ -38,7 +38,7 @@
     <br>
 
     <!-- Menu and Order Buttons -->       <!-- Add hover effect to cards -->
-    <div class="card-deck w-50 mx-auto text-dark orderButtonDiv">
+    <div class="card-deck w-50 mx-auto text-dark orderAndMenuCardsDiv">
         <div class="card text-center text-white bg-dark orderCard">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
@@ -76,7 +76,7 @@
     <div class="card-group pizzaOrderOptionsDiv shadow">
       <div class="card p-4">
         <h4>Pizza Order Options</h4>
-        <form id="pizzaPriceForm">
+        <form id="pizzaOrderForm">
           <!-- Size Selection -->
           <div class="form-group">
             <label class="lead">Select Your Size:</label>
@@ -98,19 +98,10 @@
             <input type="checkbox" name="topping" value="sausage"> Sausage<br>
             <input type="checkbox" name="topping" value="ham"> Ham<br>
           </div>
-          <button type="submit" class="btn btn-dark">Calculate Price</button>
+          <button type="submit" class="btn btn-dark">Add pizza to cart</button>
         </form>
       </div>
-      <!-- Pizza Total -->
-      <div class="card p-4 pizzaPriceReturnDiv">
-        <h4>Pizza Total</h4>
-        <p id="pizzaPriceReturnPar">This pizza costs: $<span id="pizzaPriceReturnSpan"></span>
-        <br>
-        <br>
-        <button id="addPizzaToCart" type="submit" class="btn btn-dark">Add pizza to cart</button>
-      </div>
     </div>
-
 
     <!-- Menu -->
     <hr>

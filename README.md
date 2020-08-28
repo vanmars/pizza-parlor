@@ -11,16 +11,16 @@ _28 August 2020_
 _This webpage allows users to input toppings and a size for a pizza. These inputs are used to caculate a cost of the pizza, which is then displayed to the user._
 
 ## Specifications
-| Test | Behavior | Input    | Output   |
-| -------- | -------- | -------- |
+| Test | Behavior | Input| Output |
+| -------- | -------- | -------- | -------- |
 | 1 | The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese"  | "The cost of your pizza is $5.50." |
 | 2 | The program takes user inputs of MULTIPLE toppings and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese, Peppers"  | "The cost of your pizza is $6.50." |
+| 3 | The program allows users to add multiple pizzas to shopping cart, where the size, toppings, and prices are all listed. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushroom"  | * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushroom - $9.25 |
 
 ## Setup/Installation Requirements
 
 To View Project:
 * Open a web browser of your choice and navigate to the following page:
-
 To Extend This Project:
 * Clone this project using the 'git clone' command in terminal.
 * Open the cloned repo in a text editor of your choice.
