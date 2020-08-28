@@ -1,4 +1,4 @@
-# _Pizza Parlor_
+# _Mamma Marija's Croatian Pizza Parlor_
 
 _28 August 2020_
 
@@ -8,19 +8,20 @@ _28 August 2020_
 
 ## Description
 
-_This webpage allows users to input toppings and a size for a pizza. These inputs are used to caculate a cost of the pizza, which is then displayed to the user._
+_This is a website for a fictional Croatian restaurant called Mamma Marija's. This webpage allows users to add to a shopping cart of order items. They can order pizzas with different toppings and sizes and see their shopping cart fill up with each item along with a price, based on size and toppings. Strech Goals: 1) Add in options to add pasta and desert items. 2) Add in ability to sign in and save multiple shopping carts. 3) Add in deals that reduce the price._
 
 ## Specifications
 | Test | Behavior | Input| Output |
 | -------- | -------- | -------- | -------- |
 | 1 | The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese"  | "The cost of your pizza is $5.50." |
 | 2 | The program takes user inputs of MULTIPLE toppings and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese, Peppers"  | "The cost of your pizza is $6.50." |
-| 3 | The program allows users to add multiple pizzas to shopping cart, where the size, toppings, and prices are all listed. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushroom"  | * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushroom - $9.25 |
+| 3 | The program allows users to add multiple pizzas to shopping cart, where the size, toppings, and prices are all listed. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushrooms"  | * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushrooms - $9.25 |
 
 ## Setup/Installation Requirements
 
 To View Project:
-* Open a web browser of your choice and navigate to the following page:
+* Open a web browser of your choice and navigate to the following page: https://vanmars.github.io/pizza-parlor/.
+
 To Extend This Project:
 * Clone this project using the 'git clone' command in terminal.
 * Open the cloned repo in a text editor of your choice.
