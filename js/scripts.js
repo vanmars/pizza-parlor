@@ -2,20 +2,20 @@
 
 // Objects to Store Costs
 let sizeCost = {
-  small: 5,
-  medium: 8,
-  large: 10,
-  extraLarge: 12
+  1: 5,   //Small
+  2: 8,   // Medium
+  3: 10,  // Large
+  4: 12   // Extra Large
 }
 
 let toppingsCost = {
-  cheese: .50,
-  peppers: 1,
-  mushrooms: 1,
-  pineapple: 1.5,
-  pepperoni: 1,
-  sausage: 1.5,
-  ham: 2,
+  1 : .50,    // cheese
+  2 : 1,      // peppers
+  3 : 1,      // mushrooms
+  4: 1.5,     // pineapple
+  5: 1,       // pepperoni
+  6: 1.5,     // sausage
+  7: 2        // hame       
 }
 
 // Pizza Constructor and Prototypes
