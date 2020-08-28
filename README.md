@@ -2,7 +2,7 @@
 
 _28 August 2020_
 
-#### _A pizza ordering website to practice object-oriented programming (for Epicodus)_
+#### _A restaurant website to practice object-oriented programming (for Epicodus)_
 
 #### By _**Vanessa Stewart**_
 
@@ -28,7 +28,16 @@ To Extend This Project:
 
 ## Known Bugs
 
-_There are no known bugs at this time._
+**Home Page**
+* Add functionality for adding pasta and desert dishes
+* Nav bar should stretch across the page without causing a horizontal scroll bar to appear
+* Add click event to menu card, that takes the user to the menu cards below
+* Add content to menus, which can be accessed from menu cards 
+* Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted
+
+**About Page**
+* Fix image sizing on main card; white space on bottom needs to be eliminated
+
 
 ## Support and contact details
 

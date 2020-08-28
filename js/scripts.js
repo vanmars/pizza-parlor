@@ -58,14 +58,26 @@ function User (firstName, lastName, phoneNumber, address){
 // Shopping Cart Constructor ---------------
 function ShoppingCart () {
   this.pizzaOrder = [];
+  this.pastaOrder = [];
+  this.dessertOrder = [];
 };
 
 // Shopping Cart Prototype: Add a Pizza Order
 ShoppingCart.prototype.addPizzaOrder = function(pizza){
   this.pizzaOrder.push(pizza);
-}
+};
 
-// Objects to Store Costs
+// Shopping Cart Prototype: Add a Pasta Order
+ShoppingCart.prototype.addPastaOrder = function(pasta){
+  this.pastaOrder.push(pasta);
+};
+
+// Shopping Cart Prototype: Add a Dessert Order
+ShoppingCart.prototype.addDessertOrder = function(dessert){
+  this.dessertOrder.push(dessert);
+};
+
+// Pizza Objects to Store Costs
 let sizeCost = {
   Small: 5.00,   //Small
   Medium: 8.00,   // Medium
@@ -76,7 +88,7 @@ let sizeCost = {
 let toppingsCost = {
   cheese: 0.50,    
   peppers: 1.00,      
-  mushroom: 1.25,      
+  mushrooms: 1.25,      
   pineapple: 1.50,    
   pepperoni: 1.00,     
   sausage: 1.50,    
