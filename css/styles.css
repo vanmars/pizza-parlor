@@ -9,10 +9,6 @@ body {
 
 
 /* Hide Order Details */
-#returnPar {
-  display: none;
-}
-
-.formDiv {
+#returnPar, .formDiv {
   display: none;
 }
