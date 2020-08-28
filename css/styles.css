@@ -13,6 +13,6 @@ body {
   display: none;
 }
 
-/* .navbar {
-  width: 100vw;
-} */
+.formDiv {
+  display: none;
+}

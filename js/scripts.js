@@ -38,10 +38,15 @@ Pizza.prototype.calculateCost = function(){
 
 // User Interface Logic
 $(document).ready(function(){
+  // Order Button Event Handler
+  $(".orderButtonDiv").click(function(){
+    $(".orderButtonDiv").slideUp();
+    $(".formDiv").slideDown();
+  });
+
   // Form Submit Event Handler
   $("form#orderForm").submit(function(event){
     event.preventDefault();
-
     // Capture Form Content
     const sizeInput = $("#size").val();
     const toppingsInput = [];
@@ -49,10 +54,8 @@ $(document).ready(function(){
       const topping = $(this).val();
       toppingsInput.push(topping)
     });
-
     // Create New Pizza Object with User Input
     let newPizza = new Pizza(sizeInput, toppingsInput);
-
     // Calculate Cost of Pizza and Display to Screen
     let newPrice = newPizza.calculateCost();
     $("#returnSpan").text(newPrice);
