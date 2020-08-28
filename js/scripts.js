@@ -1,4 +1,68 @@
+// -------------- //
 // BUSINESS LOGIC //
+// -------------- //
+
+// UserBook Constructor ---------------
+function UserBook () {
+  this.users = [];
+  this.currentId = 0;
+};
+
+// UserBook Prototype: Assign ID
+UserBook.prototype.assignID = function() {
+  this.currentId += 1;
+  return this.currentId;
+};
+
+// UserBook Prototype: Add User
+UserBook.prototype.addUser = function(user){
+  user.id = this.assignId();
+  this.users.push(user);
+};
+
+// UserBook Prototype: Find User
+UserBook.prototype.findUser = function(id) {
+  for (let i=0; i<this.users.length; i++){
+    if (this.users[i]) {
+      if (this.users[i].id == id) {
+        return this.users[i];
+      };
+    };
+  };
+  return false;
+};
+
+// UserBook Prototype: Delete User
+UserBook.prototype.deleteUser = function(id) {
+  for (let i=0; i<this.users.length; i++){
+    if (this.users[i]) {
+      if (this.users[i].id == id) {
+        delete this.contacts[i]
+        return true;
+      };
+    };
+  };
+  return false;
+};
+
+// User Constructor ---------------
+function User (firstName, lastName, phoneNumber, address){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.phoneNumber = phoneNumber;
+  this.address = address
+  this.carts = [];
+};
+
+// Shopping Cart Constructor ---------------
+function shoppingCart () {
+  this.pizzaOrder = [];
+};
+
+shoppingCart.prototype.addPizzaOrder = function(pizza){
+  this.pizzaOrder.push(pizza);
+}
+
 
 // Objects to Store Costs
 let sizeCost = {
@@ -44,7 +108,7 @@ $(document).ready(function(){
     $(".formDiv").slideDown();
   });
 
-  // Form Submit Event Handler
+  // Pizze Order Form Submit Event Handler
   $("form#orderForm").submit(function(event){
     event.preventDefault();
     // Capture Form Content
@@ -59,7 +123,7 @@ $(document).ready(function(){
     // Calculate Cost of Pizza and Display to Screen
     let newPrice = newPizza.calculateCost();
     $("#returnSpan").text(newPrice);
-    $("#returnPar").show();
+    $(".returnDiv").show();
 
   });
 });

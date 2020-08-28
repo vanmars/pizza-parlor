@@ -9,6 +9,11 @@ body {
 
 
 /* Hide Order Details */
-#returnPar, .formDiv {
+.returnDiv, .formDiv {
   display: none;
+}
+
+/* Shopping Cart Buttons */
+.shoppingCartButtons {
+  width: 15%;
 }

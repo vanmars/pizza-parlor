@@ -20,16 +20,16 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link active" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="about.html">About</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
         </ul>
         <span class="navbar-text">
           <em>where food and family come together</em>
         </span>
-        <button class="btn-sm btn-outline-dark ml-auto">Sign In</button>
+        <button class=" btn btn-sm btn-outline-dark ml-auto">Sign In</button>
       </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#d1dbe8">
@@ -37,16 +37,15 @@
     </nav>
     <br>
    
-
-    <!-- Menu and Order Buttons -->
+    <!-- Menu and Order Buttons -->       <!-- Add hover effect to cards -->
     <div class="card-deck w-50 mx-auto text-dark orderButtonDiv">
-        <div class="card text-center" style="background-color:#d1dbe8">
+        <div class="card text-center text-white bg-dark">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
             <h3 class="card-title">Order</h3>
           </div>
         </div>
-        <div class="card text-center" style="background-color:#d1dbe8">
+        <div class="card text-center text-white bg-dark">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
             <h3 class="card-title">Menu</h3>
@@ -54,10 +53,32 @@
         </div>
       </div>
 
-    <!-- Form -->
-    <div class="card-group formDiv">
+    
+    <!-- Customer Cart -->
+    <br>
+    <div class="card p-4 shadow" style="background-color:#d1dbe8">
+      <h1 class="display-4 text-center">Shopping Cart</h1>
+      <hr>
+      <h3>Pizza</h3>
+      <button class="btn btn-sm btn-dark shoppingCartButtons">Add pizza</button>
+      <br>
+      <h3>Pasta</h3>
+      <button class="btn btn-sm btn-dark shoppingCartButtons">Add pasta</button>
+      <br>
+      <h3>Deserts</h3>
+      <button class="btn btn-sm btn-dark shoppingCartButtons">Add desert</button>
+      <br>
+      <!-- Shopping cart header  -->
+      <!-- Pizza order header -->
+      <!-- Past order header -->
+      <!-- Desert order header -->
+
+    </div>
+
+    <!-- Pizza Order Form -->
+    <div class="card-group formDiv shadow">
       <div class="card p-4">
-        <h4>Order Here!</h4>
+        <h4>Pizza Order Options</h4>
         <form id="orderForm">
           <!-- Size Selection -->
           <div class="form-group">
@@ -72,21 +93,24 @@
           <!-- Toppings Selection -->
           <div class="form-group">
             <p class="lead">Select Your Toppings:</p>
-            <input type="checkbox" name="topping" value="cheese">Cheese<br>
-            <input type="checkbox" name="topping" value="peppers">Peppers<br>
-            <input type="checkbox" name="topping" value="mushroom">Mushroom<br>
-            <input type="checkbox" name="topping" value="pineapple">Pineapple<br>
-            <input type="checkbox" name="topping" value="pepperoni">Pepperoni<br>
-            <input type="checkbox" name="topping" value="sausage">Sausage<br>
-            <input type="checkbox" name="topping" value="ham">Ham<br>
+            <input type="checkbox" name="topping" value="cheese"> Cheese<br>
+            <input type="checkbox" name="topping" value="peppers"> Peppers<br>
+            <input type="checkbox" name="topping" value="mushroom"> Mushroom<br>
+            <input type="checkbox" name="topping" value="pineapple"> Pineapple<br>
+            <input type="checkbox" name="topping" value="pepperoni"> Pepperoni<br>
+            <input type="checkbox" name="topping" value="sausage"> Sausage<br>
+            <input type="checkbox" name="topping" value="ham"> Ham<br>
           </div>
-          <button class="submit">Calculate Price</button>
+          <button type="submit" class="btn btn-dark">Calculate Price</button>
         </form>
       </div>
-      <!-- Order Details -->
-      <div class="card p-4">
-        <h4>Order Details</h4>
+      <!-- Pizza Total -->
+      <div class="card p-4 returnDiv">
+        <h4>Pizza Total</h4>
         <p id="returnPar">Your order total: $<span id="returnSpan"></span>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-dark">Add order to cart</button>
       </div>
     </div>
 
