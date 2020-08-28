@@ -66,10 +66,10 @@ ShoppingCart.prototype.addPizzaOrder = function(pizza){
 
 // Objects to Store Costs
 let sizeCost = {
-  1: 5.00,   //Small
-  2: 8.00,   // Medium
-  3: 10.00,  // Large
-  4: 12.00   // Extra Large
+  Small: 5.00,   //Small
+  Medium: 8.00,   // Medium
+  Large: 10.00,  // Large
+  "Extra large": 12.00   // Extra Large
 };
 
 let toppingsCost = {
@@ -97,8 +97,12 @@ Pizza.prototype.calculateCost = function(){
   for (topping of this.toppings) {
     toppingsPrice += toppingsCost[topping]
   };
-  return (sizePrice + toppingsPrice).toFixed(2);
+  let totalPrice = (sizePrice + toppingsPrice).toFixed(2);
+  this.price = totalPrice
+  return totalPrice;
 };
+
+// Add Price
 
 // User Interface Logic
 $(document).ready(function(){
@@ -139,7 +143,7 @@ $(document).ready(function(){
           // Add pizza to order
           newCart.addPizzaOrder(newPizza)
           // New item should show up in pizza shopping cart
-          $("#pizzaList").append("<li>"+ newPizza.size + " with " + newPizza.toppings.join (", ")  +"</li>");
+          $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join (", ")  + " - $" + newPizza.price + "</li>");
           // Pizza Order Form Should Close
           $("form#pizzaPriceForm").reset();
           $(".pizzaPriceReturnDiv").slideUp();
