@@ -39,47 +39,44 @@
    
     <!-- Menu and Order Buttons -->       <!-- Add hover effect to cards -->
     <div class="card-deck w-50 mx-auto text-dark orderButtonDiv">
-        <div class="card text-center text-white bg-dark">
+        <div class="card text-center text-white bg-dark orderCard">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
             <h3 class="card-title">Order</h3>
           </div>
         </div>
-        <div class="card text-center text-white bg-dark">
+        <div class="card text-center text-white bg-dark menuCard">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
             <h3 class="card-title">Menu</h3>
           </div>
         </div>
       </div>
-
     
     <!-- Customer Cart -->
     <br>
-    <div class="card p-4 shadow" style="background-color:#d1dbe8">
+    <div class="card p-4 shadow customerCart" style="background-color:#d1dbe8">
       <h1 class="display-4 text-center">Shopping Cart</h1>
       <hr>
       <h3>Pizza</h3>
-      <button class="btn btn-sm btn-dark shoppingCartButtons">Add pizza</button>
+      <ul id="pizzaList"></ul>
+      <button id="addPizzaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pizza</button>
       <br>
       <h3>Pasta</h3>
-      <button class="btn btn-sm btn-dark shoppingCartButtons">Add pasta</button>
+      <ul id="pastaList"></ul>
+      <button id="addPastaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pasta</button>
       <br>
       <h3>Deserts</h3>
-      <button class="btn btn-sm btn-dark shoppingCartButtons">Add desert</button>
+      <ul id="desertList"></ul>
+      <button id="addDesertButton" class="btn btn-sm btn-dark shoppingCartButtons">Add desert</button>
       <br>
-      <!-- Shopping cart header  -->
-      <!-- Pizza order header -->
-      <!-- Past order header -->
-      <!-- Desert order header -->
-
     </div>
 
     <!-- Pizza Order Form -->
-    <div class="card-group formDiv shadow">
+    <div class="card-group pizzaOrderOptionsDiv shadow">
       <div class="card p-4">
         <h4>Pizza Order Options</h4>
-        <form id="orderForm">
+        <form id="pizzaPriceForm">
           <!-- Size Selection -->
           <div class="form-group">
             <label class="lead">Select Your Size:</label>
@@ -105,12 +102,12 @@
         </form>
       </div>
       <!-- Pizza Total -->
-      <div class="card p-4 returnDiv">
+      <div class="card p-4 pizzaPriceReturnDiv">
         <h4>Pizza Total</h4>
-        <p id="returnPar">Your order total: $<span id="returnSpan"></span>
+        <p id="pizzaPriceReturnPar">This pizza costs: $<span id="pizzaPriceReturnSpan"></span>
         <br>
         <br>
-        <button type="submit" class="btn btn-dark">Add order to cart</button>
+        <button id="addPizzaToCart" type="submit" class="btn btn-dark">Add pizza to cart</button>
       </div>
     </div>
 

@@ -55,11 +55,11 @@ function User (firstName, lastName, phoneNumber, address){
 };
 
 // Shopping Cart Constructor ---------------
-function shoppingCart () {
+function ShoppingCart () {
   this.pizzaOrder = [];
 };
 
-shoppingCart.prototype.addPizzaOrder = function(pizza){
+ShoppingCart.prototype.addPizzaOrder = function(pizza){
   this.pizzaOrder.push(pizza);
 }
 
@@ -102,28 +102,52 @@ Pizza.prototype.calculateCost = function(){
 
 // User Interface Logic
 $(document).ready(function(){
-  // Order Button Event Handler
-  $(".orderButtonDiv").click(function(){
+  // Order Card Event Handler
+  $(".orderCard").click(function(){
+    // Show Shopping Cart Div
     $(".orderButtonDiv").slideUp();
-    $(".formDiv").slideDown();
-  });
+    $(".customerCart").slideDown();
 
-  // Pizze Order Form Submit Event Handler
-  $("form#orderForm").submit(function(event){
-    event.preventDefault();
-    // Capture Form Content
-    const sizeInput = $("#size").val();
-    const toppingsInput = [];
-    $("input:checkbox:checked").each(function(){
-      const topping = $(this).val();
-      toppingsInput.push(topping)
-    });
-    // Create New Pizza Object with User Input
-    let newPizza = new Pizza(sizeInput, toppingsInput);
-    // Calculate Cost of Pizza and Display to Screen
-    let newPrice = newPizza.calculateCost();
-    $("#returnSpan").text(newPrice);
-    $(".returnDiv").show();
+    // Create new Shopping Cart
+    let newCart = new ShoppingCart();
+
+    // Shopping Cart Event Handlers
+    $("#addPizzaButton").click(function(){
+      $(".pizzaOrderOptionsDiv").show();
+
+      // Calculate Pizza Price
+      $("form#pizzaPriceForm").submit(function(event){
+        event.preventDefault();
+        // Capture Form Content
+        const sizeInput = $("#size").val();
+        const toppingsInput = [];
+        $("input:checkbox:checked").each(function(){
+          const topping = $(this).val();
+          toppingsInput.push(topping)
+        });
+
+        // Create New Pizza Object with User Input
+        let newPizza = new Pizza(sizeInput, toppingsInput);
+
+        // Calculate Cost of Pizza and Display to Screen
+        let newPrice = newPizza.calculateCost();
+        $("#pizzaPriceReturnSpan").text(newPrice);
+        $(".pizzaPriceReturnDiv").show();
+
+        // Add Pizza to Cart
+        $("button#addPizzaToCart").click(function(){
+          // Add pizza to order
+          newCart.addPizzaOrder(newPizza)
+          // New item should show up in pizza shopping cart
+          $("#pizzaList").append("<li>"+ newPizza.size + " with " + newPizza.toppings.join (", ")  +"</li>");
+          // Pizza Order Form Should Close
+          $("form#pizzaPriceForm").reset();
+          $(".pizzaPriceReturnDiv").slideUp();
+          $(".pizzaOrderOptionsDiv").slideUp();
+        }) 
+      });
+
+      });
 
   });
 });
