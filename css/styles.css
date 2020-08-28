@@ -1,5 +1,14 @@
-/* Hide Order Details */
+/* Home Page Background Image */
+body { 
+  background: url(https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+
+/* Hide Order Details */
 #returnPar {
   display: none;
 }
