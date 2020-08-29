@@ -1,7 +1,6 @@
-// BUGS
-// Pesto sauce registers as NaN
-
 // BUSINESS LOGIC //
+
+// Shopping Cart  --------------- --------------- ---------------
 // Shopping Cart Constructor ---------------
 function ShoppingCart () {
   this.pizzaOrder = [];
@@ -41,11 +40,10 @@ ShoppingCart.prototype.calculateTotal = function(){
   };
   let cartTotal = (pizzaTotal + pastaTotal + dessertTotal);
   console.log("Cart Total Type:", typeof(cartTotal));
-  // cartTotal.toFixed(2);
-  // let roundedCartTotal = cartTotal.toFixed(2);
   return cartTotal
 };
 
+// Pizza  --------------- --------------- ---------------
 // Pizza Cost Objects
 let sizeCost = {
   Small: 5.00,   //Small
@@ -64,7 +62,7 @@ let toppingsCost = {
   ham : 2.00             
 };
 
-// Pizza Constructor ---------------
+// Pizza Constructor  ---------------
 function Pizza (size, toppings){
   this.size = size,
   this.toppings = toppings
@@ -85,6 +83,7 @@ Pizza.prototype.calculateCost = function(){
   return ((totalPrice).toFixed(2));
 };
 
+// Pasta  --------------- --------------- ---------------
 // Pasta Cost Objects
 let noodleCost = {
   Surlice: 6.00, 
@@ -96,7 +95,7 @@ let noodleCost = {
 let sauceCost = {
   "white wine": .50,
   tomato: .75,
-  petso: 1.00
+  pesto: 1.00
 };
 
 let addOnsCost = {
@@ -132,6 +131,7 @@ Pasta.prototype.calculateCost = function(){
   return ((totalPrice).toFixed(2));
 };
 
+// Desserts  --------------- --------------- ---------------
 // Desserts Object
 let desserts = {
   Fritule: 3.00,
@@ -145,8 +145,7 @@ function Dessert (dessert) {
   this.price = desserts[this.dessert];
 }
 
-
-// User Interface Logic
+// USER INTERFACE LOGIC
 $(document).ready(function(){
 
   // Menu Card Event
@@ -185,12 +184,12 @@ $(document).ready(function(){
       $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPrice + "</li>");
       // Shopping Cart Total Should Be Calculated and Appended 
       let newCartTotal = newCart.calculateTotal();
-      $("#cartTotalReturn").text(newCartTotal);
+      $("#cartTotalReturn").text(newCartTotal.toFixed(2));
       $("form#pizzaOrderForm")[0].reset();
       // Pizza Order Form Should Close
       // $(".pizzaOrderOptionsDiv").slideUp(); 
     });
-     
+  
     // Listen for Pasta Form Submit
     $("form#pastaOrderForm").submit(function(event){
       console.log("Pasta Submitted!")
@@ -212,7 +211,7 @@ $(document).ready(function(){
       $("#pastaList").append("<li>" + newPasta.noodle + " - " +  newPasta.sauce + " - " + newPasta.addOns.join(", ")  + " - $" + newPrice + "</li>");
       // Shopping Cart Total Should Be Calculated and Appended 
       let newCartTotal = newCart.calculateTotal();
-      $("#cartTotalReturn").text(newCartTotal);
+      $("#cartTotalReturn").text(newCartTotal.toFixed(2));
       // Pasta Order Form Should Reset
       $("form#pastaOrderForm")[0].reset();
     });
@@ -231,16 +230,13 @@ $(document).ready(function(){
       $("#dessertList").append("<li>"+ dessertInput + " -  $" + (newDessert.price.toFixed(2)) + "</li>");
       // Shopping Cart Total Should Be Calculated and Appended
       let newCartTotal = newCart.calculateTotal();
-      $("#cartTotalReturn").text(newCartTotal);
+      $("#cartTotalReturn").text(newCartTotal.toFixed(2));
       // Dessert Order Form Should Reset
       $("form#dessertOrderForm")[0].reset();
     });
 
   });
 });
-
-
-
 
 
 // For Stretch Goals of Adding Sign-Ins

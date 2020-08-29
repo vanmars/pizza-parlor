@@ -1,6 +1,6 @@
 # _Mamma Marija's Croatian Pizza Parlor_
 
-_28 August 2020_
+28 August 2020
 
 #### _A restaurant website to practice object-oriented programming (for Epicodus)_
 
@@ -8,15 +8,18 @@ _28 August 2020_
 
 ## Description
 
-_This is a website for a fictional Croatian restaurant called Mamma Marija's. This webpage allows users to add to a shopping cart of order items. They can order pizzas with different toppings and sizes and see their shopping cart fill up with each item along with a price, based on size and toppings. Strech Goals: 1) Add in options to add pasta and desert items. 2) Add in ability to sign in and save multiple shopping carts. 3) Add in deals that reduce the price._
+This is a website for a fictional Croatian restaurant called Mamma Marija's Croatian Pizza Parlor. This webpage allows users to order pizza, pasta, and dessert. The pizza and pasta orders can be customized with different selections for toppings, size, noodle, or sauce. Each customization affects the price, which is reflected in price displayed to the user. All items added to the cart contribute to a total cart price, which is also displayed to the suer.
+
+ _Future Goals: 1) Add in options to delete items from cart. 2) Add in checkout button with options for take-out or delivery. 3) Add in ability to sign in and save multiple shopping carts and contact info. 4) Add in deals that reduce the price._
 
 ## Specifications
 | Test | Behavior | Input| Output |
 | -------- | -------- | -------- | -------- |
 | 1 | The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese"  | "The cost of your pizza is $5.50." |
-| 2 | The program takes user inputs of MULTIPLE toppings and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese, Peppers"  | "The cost of your pizza is $6.50." |
+| 2 | The program takes user inputs of multiple toppings with a single size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese, Peppers"  | "The cost of your pizza is $6.50." |
 | 3 | The program allows users to add multiple pizzas to shopping cart, where the size, toppings, and prices are all listed. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushrooms"  | * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushrooms - $9.25 |
-| 4 | The program allows users to see a shopping cart total as they add items to the cart. |  * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushrooms - $9.25  | Cart Total: $31.25 |
+| 4 | The program allows users to see a shopping cart total as they add items to the cart. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushrooms"  | Cart Total: $31.25 |
+| 5 | The program allows users to add pasta and dessert items to the cart as well. | Pizza: Small, peppers; Pasta: Surlice, white wine, cheese; Dessert: Fritule | Pizza: * Small - peppers - $6.00; Pasta: *Surlice - white wine - cheese - $7.00; Dessert: * Fritule - $3.00; Cart Total: $16.00 |  
 
 ## Setup/Installation Requirements
 
@@ -29,13 +32,11 @@ To Extend This Project:
 
 ## Known Bugs
 
-**Home Page**
+**Home Page Bugs**
+* Add hover effect to order and menu cards
 * Add content to menus, which can be accessed from menu cards 
-* Add functionality for adding pasta and desert dishes
-* Figure out why the background image takes a while to load after page refresh
-* Add white box for shopping cart total number to appear inside.
-* Eliminate bug with pizza submission form, adding small pizzas
 * Reconfigure the white text overlay on the menu cards to be responsive with other viewports
+* Figure out why the background image takes a while to load after page refresh
 
 ## Support and contact details
 
