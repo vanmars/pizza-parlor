@@ -158,39 +158,41 @@ $(document).ready(function(){
     // Create new Shopping Cart
     let newCart = new ShoppingCart();
 
-    // Add Pizza Event
-    $("#addPizzaButton").click(function(){
-      $(".pizzaOrderOptionsDiv").show();
-      $("form#pizzaOrderForm")[0].reset();
-      // Listen for Pizza Form Submit
-      $("form#pizzaOrderForm").submit(function(event){
-        event.preventDefault();
-        console.log("Add pizza clicked")
-        // Capture Form Content
-        const sizeInput = $("#size").val();
-        let toppingsInput = [];
-        $("input:checkbox[name=topping]:checked").each(function(){
-          const topping = $(this).val();
-          toppingsInput.push(topping);
-        });
-        console.log("Size Input", sizeInput)
-        console.log("Toppings Input", toppingsInput)
-
-        // Create New Pizza Object with User Input
-        let newPizza = new Pizza(sizeInput, toppingsInput);
-        // Calculate Cost of Pizza 
-        let newPrice = newPizza.calculateCost();
-        // Add Pizza to newCart and Display to Site
-        newCart.addPizzaOrder(newPizza)
-        $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
-        // Shopping Cart Total Should Be Calculated and Appended 
-        let newCartTotal = newCart.calculateTotal();
-        $("#cartTotalReturn").text(newCartTotal);
-        $("form#pizzaOrderForm")[0].reset();
-        // Pizza Order Form Should Close
-        // $(".pizzaOrderOptionsDiv").slideUp(); 
+     // Listen for Pizza Form Submit
+     $("form#pizzaOrderForm").submit(function(event){
+      event.preventDefault();
+      console.log("Add pizza clicked")
+      // Capture Form Content
+      const sizeInput = $("#size").val();
+      let toppingsInput = [];
+      $("input:checkbox[name=topping]:checked").each(function(){
+        const topping = $(this).val();
+        toppingsInput.push(topping);
       });
+      console.log("Size Input", sizeInput)
+      console.log("Toppings Input", toppingsInput)
+
+      // Create New Pizza Object with User Input
+      let newPizza = new Pizza(sizeInput, toppingsInput);
+      // Calculate Cost of Pizza 
+      let newPrice = newPizza.calculateCost();
+      // Add Pizza to newCart and Display to Site
+      newCart.addPizzaOrder(newPizza)
+      $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
+      // Shopping Cart Total Should Be Calculated and Appended 
+      let newCartTotal = newCart.calculateTotal();
+      $("#cartTotalReturn").text(newCartTotal);
+      $("form#pizzaOrderForm")[0].reset();
+      // Pizza Order Form Should Close
+      // $(".pizzaOrderOptionsDiv").slideUp(); 
     });
+
+    // Add Pizza Event
+    // $("#addPizzaButton").click(function(){
+    //   $(".pizzaOrderOptionsDiv").show();
+
+     
+
 
     // Add Pasta Event
     $("#addPastaButton").click(function(){

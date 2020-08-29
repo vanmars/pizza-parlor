@@ -61,20 +61,21 @@
       <div class="row">
         <div class="col-md-6">
           <h3>Pizza</h3>
-          <button id="addPizzaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pizza</button><br><br>
+          <!-- <button id="addPizzaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pizza</button> -->
           <ul id="pizzaList"></ul>
           <br>
           <h3>Pasta</h3>
           <ul id="pastaList"></ul>
-          <button id="addPastaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pasta</button><br><br>
+          <!-- <button id="addPastaButton" class="btn btn-sm btn-dark shoppingCartButtons">Add pasta</button> -->
+          <br>
           <h3>Deserts</h3>
           <ul id="desertList"></ul>
-          <button id="addDessertButton" class="btn btn-sm btn-dark shoppingCartButtons">Add desert</button>
+          <!-- <button id="addDessertButton" class="btn btn-sm btn-dark shoppingCartButtons">Add desert</button> -->
           <br>
         </div>
         <div class="col-md-6">
           <h3>Cart Total</h3>
-          <p class="lead">$ <span id="cartTotalReturn"></span></p>
+          <p class="lead">$ <span id="cartTotalReturn" style="background-color: white" >    </span></p>
         </div>
       </div>
       
@@ -82,7 +83,7 @@
     </div>
 
     <!-- Pizza Order Form -->
-    <div class="card-group pizzaOrderOptionsDiv shadow">
+    <div class="card-group pizzaOrderOptionsDiv customerCart shadow">
       <div class="card p-4">
         <h4>Pizza Order Options</h4>
         <form id="pizzaOrderForm">
@@ -113,7 +114,7 @@
     </div>
 
     <!-- Pasta Order Form -->
-    <div class="card-group pastaOrderOptionsDiv shadow">
+    <div class="card-group pastaOrderOptionsDiv customerCart shadow">
       <div class="card p-4">
         <h4>Pasta Order Options</h4>
         <form id="pastaOrderForm">
@@ -151,7 +152,7 @@
     </div>
 
     <!-- Desert Order Form -->
-    <div class="card-group dessertOrderOptionsDiv shadow">
+    <div class="card-group dessertOrderOptionsDiv customerCart shadow">
       <div class="card p-4">
         <h4>Dessert Order Options</h4>
         <form id="dessertOrderForm">
