@@ -35,11 +35,6 @@ To Extend This Project:
 * Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted
 * Figure out why the background image takes a while to load after page refresh
 
-
-**About Page**
-* Fix margins around both cards
-
-
 ## Support and contact details
 
 _Connect with me at vamariestewart@gmail.com with ideas to improve this project._

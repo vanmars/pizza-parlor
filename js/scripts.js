@@ -162,7 +162,7 @@ $(document).ready(function(){
         $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
         
         // Pizza Order Form Should Close
-        $("form#pizzaOrderForm").reset();
+        $("form#pizzaOrderForm")[0].reset();
         $(".pizzaOrderOptionsDiv").slideUp(); 
       });
     });
