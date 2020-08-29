@@ -1,6 +1,5 @@
 // BUGS
-// Small pizza without any topic keeps getting added to pizzaOrder
-// Pasta orders are not being added to Shopping art
+// Pesto sauce registers as NaN
 
 // BUSINESS LOGIC //
 // Shopping Cart Constructor ---------------
@@ -32,15 +31,19 @@ ShoppingCart.prototype.calculateTotal = function(){
   let pastaTotal = 0;
   let dessertTotal = 0;
   for (pizza of this.pizzaOrder){
-    pizzaTotal += pizza.price
+    Number(pizzaTotal += pizza.price)
   };
   for (pasta of this.pastaOrder){
-    pastaTotal += pasta.price
+    Number(pastaTotal += pasta.price)
   };
   for (dessert of this.dessertOrder){
-    dessertTotal += dessert.price
+    Number(dessertTotal += dessert.price)
   };
-  return (pizzaTotal + pastaTotal + dessertTotal).toFixed(2);
+  let cartTotal = (pizzaTotal + pastaTotal + dessertTotal);
+  console.log("Cart Total Type:", typeof(cartTotal));
+  // cartTotal.toFixed(2);
+  // let roundedCartTotal = cartTotal.toFixed(2);
+  return cartTotal
 };
 
 // Pizza Cost Objects
@@ -77,6 +80,7 @@ Pizza.prototype.calculateCost = function(){
     toppingsPrice += toppingsCost[topping]
   };
   let totalPrice = sizePrice + toppingsPrice;
+  console.log("Pizza total type:", typeof(totalPrice));
   this.price = totalPrice
   return ((totalPrice).toFixed(2));
 };
@@ -93,15 +97,15 @@ let sauceCost = {
   "white wine": .50,
   tomato: .75,
   petso: 1.00
-}
+};
 
-let addOns = {
+let addOnsCost = {
   cheese: .50,
   mushrooms: .50,
   veggies: .75,
   meat: 1.00,
   shrimp: 1.50
-}
+};
 
 // Pasta Constructor ---------------
 function Pasta (noodle, sauce, addOns) {
@@ -122,9 +126,10 @@ Pasta.prototype.calculateCost = function(){
   for (addOn of this.addOns) {
     addOnsPrice += addOnsCost[addOn]
   };
-  let totalPrice = (noodlePrice + saucePricePrice + addOnsPrice).toFixed(2);
+  let totalPrice = (noodlePrice + saucePrice + addOnsPrice);
+  console.log("Pasta total type:", typeof(totalPrice));
   this.price = totalPrice
-  return totalPrice;
+  return ((totalPrice).toFixed(2));
 };
 
 // Desserts Object
@@ -135,9 +140,9 @@ let desserts = {
 }
 
 // Dessert Constructor
-function Dessert (dessert, price) {
+function Dessert (dessert) {
   this.dessert = dessert,
-  this.price = desserts[this.dessert]
+  this.price = desserts[this.dessert];
 }
 
 
@@ -171,14 +176,13 @@ $(document).ready(function(){
       });
       console.log("Size Input", sizeInput)
       console.log("Toppings Input", toppingsInput)
-
       // Create New Pizza Object with User Input
       let newPizza = new Pizza(sizeInput, toppingsInput);
       // Calculate Cost of Pizza 
       let newPrice = newPizza.calculateCost();
       // Add Pizza to newCart and Display to Site
       newCart.addPizzaOrder(newPizza)
-      $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
+      $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPrice + "</li>");
       // Shopping Cart Total Should Be Calculated and Appended 
       let newCartTotal = newCart.calculateTotal();
       $("#cartTotalReturn").text(newCartTotal);
@@ -186,43 +190,50 @@ $(document).ready(function(){
       // Pizza Order Form Should Close
       // $(".pizzaOrderOptionsDiv").slideUp(); 
     });
-
-    // Add Pizza Event
-    // $("#addPizzaButton").click(function(){
-    //   $(".pizzaOrderOptionsDiv").show();
-
      
-
-
-    // Add Pasta Event
-    $("#addPastaButton").click(function(){
-      $(".pastaOrderOptionsDiv").show();
-      // Listen for Pasta Form Submit
-      $("form#pastaOrderForm").submit(function(event){
-        event.preventDefault();
-        // Capture Form Content
-        const noodleInput = $("#noodle").val();
-        const sauceInput = $("#sauce").val();
-        let addOnsInput = [];
-        $("input:checkbox[name=addOns]:checked").each(function(){
-          const addOn = $(this).val();
-          addOnsInput.push(addOn);
-        });
-
-        // Create New Pasta Object with User Input
-        let newPasta = new Pasta(noodleInput, sauceInput, addOnsInput);
-        // Calculate Cost of Pasta 
-        let newPrice = newPasta.calculateCost();
-        // Add Pasta to newCart and Display to Site
-        newCart.addPastaOrder(newPasta)
-        $("#pastaList").append("<li>" + newPasta.noodle + " - " +  newPasta.sauce + " - " + newPasta.addOns.join(", ")  + " - $" + newPrice + "</li>");
-        // Shopping Cart Total Should Be Calculated and Appended 
-        let newCartTotal = newCart.calculateTotal();
-        $("#cartTotalReturn").text(newCartTotal);
-        // Pizza Order Form Should Close
-        $("form#pastaOrderForm")[0].reset();
-        $(".pastaOrderOptionsDiv").slideUp(); 
+    // Listen for Pasta Form Submit
+    $("form#pastaOrderForm").submit(function(event){
+      console.log("Pasta Submitted!")
+      event.preventDefault();
+      // Capture Form Content
+      const noodleInput = $("#noodle").val();
+      const sauceInput = $("#sauce").val();
+      let addOnsInput = [];
+      $("input:checkbox[name=addOns]:checked").each(function(){
+        const addOn = $(this).val();
+        addOnsInput.push(addOn);
       });
+      // Create New Pasta Object with User Input
+      let newPasta = new Pasta(noodleInput, sauceInput, addOnsInput);
+      // Calculate Cost of Pasta 
+      let newPrice = newPasta.calculateCost();
+      // Add Pasta to newCart and Display to Site
+      newCart.addPastaOrder(newPasta);
+      $("#pastaList").append("<li>" + newPasta.noodle + " - " +  newPasta.sauce + " - " + newPasta.addOns.join(", ")  + " - $" + newPrice + "</li>");
+      // Shopping Cart Total Should Be Calculated and Appended 
+      let newCartTotal = newCart.calculateTotal();
+      $("#cartTotalReturn").text(newCartTotal);
+      // Pasta Order Form Should Reset
+      $("form#pastaOrderForm")[0].reset();
+    });
+
+    // Listen for Desert Form Submit
+    $("form#dessertOrderForm").submit(function(event){
+      console.log("Dessert Submitted!")
+      event.preventDefault();
+      // Capture Form Content
+      const dessertInput = $("#dessert").val();
+      // Create New Dessert Object with User Input
+      let newDessert = new Dessert(dessertInput);
+      console.log("Desert: ", newDessert.dessert, "Price: ", newDessert.price);
+      // Add Dessert to newCart and Display to Site
+      newCart.addDessertOrder(newDessert);
+      $("#dessertList").append("<li>"+ dessertInput + " -  $" + (newDessert.price.toFixed(2)) + "</li>");
+      // Shopping Cart Total Should Be Calculated and Appended
+      let newCartTotal = newCart.calculateTotal();
+      $("#cartTotalReturn").text(newCartTotal);
+      // Dessert Order Form Should Reset
+      $("form#dessertOrderForm")[0].reset();
     });
 
   });
