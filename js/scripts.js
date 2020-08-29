@@ -1,5 +1,6 @@
 // BUGS
-// * Small pizza without any topic keeps getting added to pizzaOrder
+// Small pizza without any topic keeps getting added to pizzaOrder
+// Pasta orders are not being added to Shopping art
 
 // BUSINESS LOGIC //
 // Shopping Cart Constructor ---------------
@@ -39,7 +40,7 @@ ShoppingCart.prototype.calculateTotal = function(){
   for (dessert of this.dessertOrder){
     dessertTotal += dessert.price
   };
-  return (pizzaTotal + pastaTotal + dessertTotal);
+  return (pizzaTotal + pastaTotal + dessertTotal).toFixed(2);
 };
 
 // Pizza Cost Objects
@@ -142,6 +143,7 @@ function Dessert (dessert, price) {
 
 // User Interface Logic
 $(document).ready(function(){
+
   // Menu Card Event
   $(".menuCard").click(function() {
     // $(".orderAndMenuCardsDiv").slideUp();
@@ -159,7 +161,6 @@ $(document).ready(function(){
     // Add Pizza Event
     $("#addPizzaButton").click(function(){
       $(".pizzaOrderOptionsDiv").show();
-      
       // Listen for Pizza Form Submit
       $("form#pizzaOrderForm").submit(function(event){
         event.preventDefault();
@@ -184,11 +185,40 @@ $(document).ready(function(){
         $("form#pizzaOrderForm")[0].reset();
         $(".pizzaOrderOptionsDiv").slideUp(); 
       });
+    });
 
+    // Add Pasta Event
+    $("#addPastaButton").click(function(){
+      $(".pastaOrderOptionsDiv").show();
+      // Listen for Pasta Form Submit
+      $("form#pastaOrderForm").submit(function(event){
+        event.preventDefault();
+        // Capture Form Content
+        const noodleInput = $("#noodle").val();
+        const sauceInput = $("#sauce").val();
+        const addOnsInput = [];
+        $("input:checkbox[name=addOns]:checked").each(function(){
+          const addOn = $(this).val();
+          addOnsInput.push(addOn);
+        });
+
+        // Create New Pasta Object with User Input
+        let newPasta = new Pasta(noodleInput, sauceInput, addOnsInput);
+        // Calculate Cost of Pasta 
+        let newPrice = newPasta.calculateCost();
+        // Add Pasta to newCart and Display to Site
+        newCart.addPastaOrder(newPasta)
+        $("#pastaList").append("<li>" + newPasta.noodle + " - " +  newPasta.sauce + " - " + newPasta.addOns.join(", ")  + " - $" + newPrice + "</li>");
+        // Shopping Cart Total Should Be Calculated and Appended 
+        let newCartTotal = newCart.calculateTotal();
+        $("#cartTotalReturn").text(newCartTotal);
+        // Pizza Order Form Should Close
+        $("form#pastaOrderForm")[0].reset();
+        $(".pastaOrderOptionsDiv").slideUp(); 
+      });
     });
 
   });
-
 });
 
 
