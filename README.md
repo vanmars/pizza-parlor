@@ -34,6 +34,7 @@ To Extend This Project:
 * Add click event to menu card, that takes the user to the menu cards below
 * Add content to menus, which can be accessed from menu cards 
 * Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted
+* Figure out why the background image takes a while to load after page refresh
 
 **About Page**
 * Fix image sizing on main card; white space on bottom needs to be eliminated
