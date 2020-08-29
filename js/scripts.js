@@ -119,10 +119,15 @@ Pizza.prototype.calculateCost = function(){
 
 // User Interface Logic
 $(document).ready(function(){
+  // Menu Card Event Handler
+  $(".menuCard").click(function() {
+    // $(".orderAndMenuCardsDiv").slideUp();
+    $("#menuDiv").slideToggle("slow");
+  })
   // Order Card Event Handler
   $(".orderCard").click(function(){
     // Show Shopping Cart Div
-    $(".orderAndMenuCardsDiv").slideUp();
+    // $(".orderAndMenuCardsDiv").slideUp();
     $(".customerCart").slideDown();
 
     // Create new Shopping Cart
