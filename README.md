@@ -37,7 +37,7 @@ To Extend This Project:
 
 
 **About Page**
-* Fix image sizing on main card; white space on bottom needs to be eliminated
+* Fix margins around both cards
 
 
 ## Support and contact details
