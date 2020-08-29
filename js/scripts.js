@@ -77,6 +77,23 @@ ShoppingCart.prototype.addDessertOrder = function(dessert){
   this.dessertOrder.push(dessert);
 };
 
+// Shopping Cart Prototype: Calculate Cart Total
+ShoppingCart.prototype.calculateTotal = function(){
+  let pizzaTotal = 0;
+  let pastaTotal = 0;
+  let dessertTotal = 0;
+  for (pizza of this.pizzaOrder){
+    pizzaTotal += pizza.price
+  };
+  for (pasta of this.pastaOrder){
+    pastaTotal += pasta.price
+  };
+  for (dessert of this.dessertOrder){
+    dessertTotal += dessert.price
+  };
+  return (pizzaTotal + pastaTotal + dessertTotal);
+};
+
 // Pizza Objects to Store Costs
 let sizeCost = {
   Small: 5.00,   //Small
@@ -155,12 +172,17 @@ $(document).ready(function(){
         // Calculate Cost of Pizza 
         let newPrice = newPizza.calculateCost();
 
-        // Add Pizza to Cart
+        // Add Pizza to newCart and Display to Site
         newCart.addPizzaOrder(newPizza)
+        $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
+
+        // Shopping Cart Total Should Be Calculated and Appended 
+        let newCartTotal = newCart.calculateTotal();
+        $("#cartTotalReturn").text(newCartTotal);
         
         // New item should show up in pizza shopping cart
-        $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
         
+
         // Pizza Order Form Should Close
         $("form#pizzaOrderForm")[0].reset();
         $(".pizzaOrderOptionsDiv").slideUp(); 

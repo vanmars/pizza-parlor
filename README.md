@@ -16,6 +16,7 @@ _This is a website for a fictional Croatian restaurant called Mamma Marija's. Th
 | 1 | The program takes user inputs of topping and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese"  | "The cost of your pizza is $5.50." |
 | 2 | The program takes user inputs of MULTIPLE toppings and size and calculates a pizza price, which is displayed to the user. | Size: "Small" Toppings: "Cheese, Peppers"  | "The cost of your pizza is $6.50." |
 | 3 | The program allows users to add multiple pizzas to shopping cart, where the size, toppings, and prices are all listed. |  Size: "Small" Toppings: "Cheese, Peppers" Size: "Extra Large" Toppings: "Ham, Pineapple" Size: "Medium" Toppings: "Mushrooms"  | * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushrooms - $9.25 |
+| 4 | The program allows users to see a shopping cart total as they add items to the cart. |  * Small - cheese, peppers - $6.50 * Extra large - pineapple, ham - $ 15.50 * Medium - mushrooms - $9.25  | Cart Total: $31.25 |
 
 ## Setup/Installation Requirements
 
