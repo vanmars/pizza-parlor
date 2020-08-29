@@ -125,9 +125,9 @@ Pasta.prototype.calculateCost = function(){
 
 // Desserts Object
 let desserts = {
-  fritule: 3.00,
-  makovnjaca: 4.00,
-  "medimurska gibanbica": 5.00
+  Fritule: 3.00,
+  Makovnjaca: 4.00,
+  "Medimurska gibanbica": 5.00
 }
 
 // Dessert Constructor
