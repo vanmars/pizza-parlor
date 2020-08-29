@@ -10,35 +10,37 @@
   <title>Mamma Marija's Pizza Parlor</title>
 </head>
 <body>
+   <!-- NavBar -->
+   <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand pl-2">Mamma Marija's</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <em>where food and family come together</em>
+      </span>
+      <!-- <button class=" btn btn-sm btn-outline-dark ml-auto">Sign In</button> -->
+    </div>
+  </nav>
+  <nav class="navbar navbar-light" style="background-color:#d1dbe8">
+    <h4 class="navbar-text font-weight-bold mx-auto">Welcome to Mamma Marija's!</h4>
+  </nav>
   <div class="container">
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <h1 class="navbar-brand pl-2">Mamma Marija's</h1>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          <em>where food and family come together</em>
-        </span>
-        <!-- <button class=" btn btn-sm btn-outline-dark ml-auto">Sign In</button> -->
-      </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#d1dbe8">
-      <h4 class="navbar-text font-weight-bold mx-auto">Welcome!</h4>
-    </nav>
     <br>
-
+    <br>
+    <br>
+    <br>
     <!-- Menu and Order Buttons -->       <!-- Add hover effect to cards -->
-    <div class="card-deck w-50 mx-auto text-dark orderAndMenuCardsDiv">
+    <div class="card-deck w-75 mx-auto text-dark orderAndMenuCardsDiv">
         <div class="card text-center text-white bg-dark orderCard">
           <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
@@ -46,7 +48,7 @@
           </div>
         </div>
         <div class="card text-center text-white bg-dark menuCard">
-          <img src="https://www.maxpixel.net/static/photo/1x/Meal-Restaurant-Refreshment-Food-Dinner-Pizza-3354447.jpg" class="card-img-top" alt="pizzas on wood table">
+          <img src="https://c1.wallpaperflare.com/preview/135/140/64/pastum-cooking-cook-noodle-thumbnail.jpg" class="card-img-top" alt="pizzas on wood table">
           <div class="card-body">
             <h3 class="card-title">Menu</h3>
           </div>
@@ -105,31 +107,36 @@
 
     <!-- Menu -->
     <hr>
-    <h2 class="text-white">Menu</h2><br>
-    <div class="card-deck menuDiv">
-      <!-- Pizza Menu -->
-      <div class="card bg-dark text-dark">
-        <img src="https://c1.wallpaperflare.com/preview/505/111/719/pizza-garlic-cutting-board-pizza-cutter-thumbnail.jpg" class="card-img" alt="pizza">
-        <div class="card-img-overlay">
-          <h1 class="card-title text-center ">Pizza</h1>
+    <div class="menuDiv">
+      <h2 class="text-white">Menu</h2><br>
+      <div class="card-deck menuDiv">
+        <!-- Pizza Menu -->
+        <div class="card bg-dark text-dark">
+          <img src="https://c1.wallpaperflare.com/preview/505/111/719/pizza-garlic-cutting-board-pizza-cutter-thumbnail.jpg" class="card-img" alt="pizza">
+          <div class="card-img-overlay">
+            <h1 class="card-title text-center ">Pizza</h1>
+          </div>
         </div>
-      </div>
-      <!-- Pasta Menu -->
-      <div class="card bg-dark text-dark">
-        <img src="https://c0.wallpaperflare.com/preview/725/226/366/pasta-cloth-fresh-making.jpg" class="card-img" alt="linguini">
-        <div class="card-img-overlay">
-          <h1 class="card-title text-center align-middle">Pasta</h1>
+        <!-- Pasta Menu -->
+        <div class="card bg-dark text-dark">
+          <img src="https://c0.wallpaperflare.com/preview/725/226/366/pasta-cloth-fresh-making.jpg" class="card-img" alt="linguini">
+          <div class="card-img-overlay">
+            <h1 class="card-title text-center align-middle">Pasta</h1>
+          </div>
         </div>
-      </div>
-      <!-- Desert Menu -->
-      <div class="card bg-dark text-dark">
-        <img src="https://p0.pikrepo.com/preview/153/290/selective-focus-photography-of-baked-pastries-thumbnail.jpg" class="card-img" alt="pastry">
-        <div class="card-img-overlay">
-          <h1 class="card-title text-center align-middle">Desert</h1>
+        <!-- Desert Menu -->
+        <div class="card bg-dark text-dark">
+          <img src="https://p0.pikrepo.com/preview/153/290/selective-focus-photography-of-baked-pastries-thumbnail.jpg" class="card-img" alt="pastry">
+          <div class="card-img-overlay">
+            <h1 class="card-title text-center align-middle">Desert</h1>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
+  <!-- Footer -->
+  <nav class="navbar fixed-bottom navbar-dark bg-dark">
+    <p class="navbar-text font-weight-bold">&copy; 2020 Mamma Marija's</p>
+  </nav>
 </body>
 </html>

@@ -9,7 +9,7 @@ body {
 
 
 /* Hide Order Details */
-.customerCart, .pizzaOrderOptionsDiv    {
+.customerCart, .pizzaOrderOptionsDiv, .menuDiv {
   display: none;
 }
 
