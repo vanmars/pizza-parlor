@@ -35,6 +35,7 @@ To Extend This Project:
 * Figure out why the background image takes a while to load after page refresh
 * Add white box for shopping cart total number to appear inside.
 * Eliminate bug with pizza submission form, adding small pizzas
+* Reconfigure the white text overlay on the menu cards to be responsive with other viewports
 
 ## Support and contact details
 

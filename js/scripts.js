@@ -161,16 +161,21 @@ $(document).ready(function(){
     // Add Pizza Event
     $("#addPizzaButton").click(function(){
       $(".pizzaOrderOptionsDiv").show();
+      $("form#pizzaOrderForm")[0].reset();
       // Listen for Pizza Form Submit
       $("form#pizzaOrderForm").submit(function(event){
         event.preventDefault();
+        console.log("Add pizza clicked")
         // Capture Form Content
         const sizeInput = $("#size").val();
-        const toppingsInput = [];
+        let toppingsInput = [];
         $("input:checkbox[name=topping]:checked").each(function(){
           const topping = $(this).val();
           toppingsInput.push(topping);
         });
+        console.log("Size Input", sizeInput)
+        console.log("Toppings Input", toppingsInput)
+
         // Create New Pizza Object with User Input
         let newPizza = new Pizza(sizeInput, toppingsInput);
         // Calculate Cost of Pizza 
@@ -181,9 +186,9 @@ $(document).ready(function(){
         // Shopping Cart Total Should Be Calculated and Appended 
         let newCartTotal = newCart.calculateTotal();
         $("#cartTotalReturn").text(newCartTotal);
-        // Pizza Order Form Should Close
         $("form#pizzaOrderForm")[0].reset();
-        $(".pizzaOrderOptionsDiv").slideUp(); 
+        // Pizza Order Form Should Close
+        // $(".pizzaOrderOptionsDiv").slideUp(); 
       });
     });
 
@@ -196,7 +201,7 @@ $(document).ready(function(){
         // Capture Form Content
         const noodleInput = $("#noodle").val();
         const sauceInput = $("#sauce").val();
-        const addOnsInput = [];
+        let addOnsInput = [];
         $("input:checkbox[name=addOns]:checked").each(function(){
           const addOn = $(this).val();
           addOnsInput.push(addOn);
