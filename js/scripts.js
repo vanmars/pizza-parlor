@@ -1,65 +1,12 @@
 // BUGS
-// 1. Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted.
 
 // BUSINESS LOGIC //
-
-// UserBook Constructor ---------------
-function UserBook () {
-  this.users = [];
-  this.currentId = 0;
-};
-
-// UserBook Prototype: Assign ID
-UserBook.prototype.assignID = function() {
-  this.currentId += 1;
-  return this.currentId;
-};
-
-// UserBook Prototype: Add User
-UserBook.prototype.addUser = function(user){
-  user.id = this.assignId();
-  this.users.push(user);
-};
-
-// UserBook Prototype: Find User
-UserBook.prototype.findUser = function(id) {
-  for (let i=0; i<this.users.length; i++){
-    if (this.users[i]) {
-      if (this.users[i].id == id) {
-        return this.users[i];
-      };
-    };
-  };
-  return false;
-};
-
-// UserBook Prototype: Delete User
-UserBook.prototype.deleteUser = function(id) {
-  for (let i=0; i<this.users.length; i++){
-    if (this.users[i]) {
-      if (this.users[i].id == id) {
-        delete this.contacts[i]
-        return true;
-      };
-    };
-  };
-  return false;
-};
-
-// User Constructor ---------------
-function User (firstName, lastName, phoneNumber, address){
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.phoneNumber = phoneNumber;
-  this.address = address
-  this.carts = [];
-};
-
 // Shopping Cart Constructor ---------------
 function ShoppingCart () {
   this.pizzaOrder = [];
   this.pastaOrder = [];
   this.dessertOrder = [];
+  this.totalPrice = 0;
 };
 
 // Shopping Cart Prototype: Add a Pizza Order
@@ -112,7 +59,7 @@ let toppingsCost = {
   ham : 2.00             
 };
 
-// Pizza Constructor
+// Pizza Constructor ---------------
 function Pizza (size, toppings){
   this.size = size,
   this.toppings = toppings
@@ -132,7 +79,56 @@ Pizza.prototype.calculateCost = function(){
   return totalPrice;
 };
 
-// Add Price
+// Pasta Objects
+let noodleCost = {
+  surlice: 6.00, 
+  pljukanci: 6.50,
+  fuzi: 7.00,
+  krafi: 7.50
+};
+
+let sauceCost = {
+  butter: .50,
+  tomato: .75,
+  petso: 1.00
+}
+
+let addOns = {
+  cheese: .50,
+  mushrooms: .50,
+  veggies: .75,
+  meat: 1.00,
+  shrimp: 1.50
+}
+
+// Pasta Constructor ---------------
+function Pasta (noodle, sauce, addOns) {
+  this.noodle = noodle;
+  this.sauce = sauce;
+  this.addOns = addOns;
+};
+
+// Pasta Prototype: Calculate Cost Method 
+Pasta.prototype.calculateCost = function(){
+  // Noodles
+  let noodlePrice = noodleCost[this.noodle];
+  // Sauce
+  let saucePrice = sauceCost[this.sauce];
+  // Add-Ons
+  let addOnsPrice = 0;
+  
+  for (addOn of this.addOns) {
+    addOnsPrice += addOnsCost[addOn]
+  };
+  let totalPrice = (noodlePrice + saucePricePrice + addOnsPrice).toFixed(2);
+  this.price = totalPrice
+  return totalPrice;
+};
+
+// Dessert Constructor
+
+
+
 
 // User Interface Logic
 $(document).ready(function(){
@@ -190,3 +186,60 @@ $(document).ready(function(){
     });
   });
 });
+
+
+
+
+
+// For Stretch Goals of Adding Sign-Ins
+// // UserBook Constructor ---------------
+// function UserBook () {
+//   this.users = [];
+//   this.currentId = 0;
+// };
+
+// // UserBook Prototype: Assign ID
+// UserBook.prototype.assignID = function() {
+//   this.currentId += 1;
+//   return this.currentId;
+// };
+
+// // UserBook Prototype: Add User
+// UserBook.prototype.addUser = function(user){
+//   user.id = this.assignId();
+//   this.users.push(user);
+// };
+
+// // UserBook Prototype: Find User
+// UserBook.prototype.findUser = function(id) {
+//   for (let i=0; i<this.users.length; i++){
+//     if (this.users[i]) {
+//       if (this.users[i].id == id) {
+//         return this.users[i];
+//       };
+//     };
+//   };
+//   return false;
+// };
+
+// // UserBook Prototype: Delete User
+// UserBook.prototype.deleteUser = function(id) {
+//   for (let i=0; i<this.users.length; i++){
+//     if (this.users[i]) {
+//       if (this.users[i].id == id) {
+//         delete this.contacts[i]
+//         return true;
+//       };
+//     };
+//   };
+//   return false;
+// };
+
+// // User Constructor ---------------
+// function User (firstName, lastName, phoneNumber, address){
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.phoneNumber = phoneNumber;
+//   this.address = address
+//   this.carts = [];
+// };
