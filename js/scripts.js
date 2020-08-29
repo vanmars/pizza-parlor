@@ -1,5 +1,3 @@
-// BUGS
-
 // BUSINESS LOGIC //
 // Shopping Cart Constructor ---------------
 function ShoppingCart () {
@@ -41,7 +39,7 @@ ShoppingCart.prototype.calculateTotal = function(){
   return (pizzaTotal + pastaTotal + dessertTotal);
 };
 
-// Pizza Objects to Store Costs
+// Pizza Cost Objects
 let sizeCost = {
   Small: 5.00,   //Small
   Medium: 8.00,   // Medium
@@ -79,7 +77,7 @@ Pizza.prototype.calculateCost = function(){
   return totalPrice;
 };
 
-// Pasta Objects
+// Pasta Cost Objects
 let noodleCost = {
   surlice: 6.00, 
   pljukanci: 6.50,
@@ -125,9 +123,18 @@ Pasta.prototype.calculateCost = function(){
   return totalPrice;
 };
 
+// Desserts Object
+let desserts = {
+  fritule: 3.00,
+  makovnjaca: 4.00,
+  "medimurska gibanbica": 5.00
+}
+
 // Dessert Constructor
-
-
+function Dessert (dessert, price) {
+  this.dessert = dessert,
+  this.price = desserts[this.dessert]
+}
 
 
 // User Interface Logic
