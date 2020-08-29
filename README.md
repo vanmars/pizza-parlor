@@ -30,11 +30,11 @@ To Extend This Project:
 ## Known Bugs
 
 **Home Page**
-* Add click event to menu card, that takes the user to the menu cards below
 * Add content to menus, which can be accessed from menu cards 
 * Add functionality for adding pasta and desert dishes
-* Figure out why pizza form does not reset and does not hide when add pizza to cart is submitted
 * Figure out why the background image takes a while to load after page refresh
+* Add white box for shopping cart total number to appear inside.
+* Eliminate bug with pizza submission form, adding small pizzas
 
 ## Support and contact details
 

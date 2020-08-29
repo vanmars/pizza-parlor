@@ -10,7 +10,7 @@
   <title>Mamma Marija's Pizza Parlor</title>
 </head>
 <body>
-   <!-- NavBar -->
+   <!-- NavBars -->
    <nav class="navbar navbar-expand navbar-light" style="background-color:#d1dbe8">
     <a class="navbar-brand pl-2">Mamma Marija's</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +34,9 @@
   <nav class="navbar navbar-dark bg-dark">
     <h4 class="navbar-text font-weight-bold mx-auto">Welcome!</h4>
   </nav>
-  <div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
+
+  <div class="container"><br><br><br><br>
+
     <!-- Menu and Order Buttons -->       <!-- Add hover effect to cards -->
     <div class="card-deck w-50 mx-auto text-dark orderAndMenuCardsDiv">
         <div class="card text-center text-white bg-dark orderCard">
@@ -91,7 +89,7 @@
         <form id="pizzaOrderForm">
           <!-- Size Selection -->
           <div class="form-group">
-            <label class="lead">Select Your Size:</label>
+            <p class="lead">Select Your Size:</p>
             <select name="size" id="size">
               <option value="Small">Small</option>
               <option value="Medium">Medium</option>
@@ -122,7 +120,7 @@
         <form id="pastaOrderForm">
           <!-- Noodle Selection -->
           <div class="form-group">
-            <label class="lead">Select Your Noodle:</label>
+            <p class="lead">Select Your Noodle:</p>
             <select name="noodle" id="noodle">
               <option value="Surlice">Surlice</option>
               <option value="Pljukanci">Pljukanci</option>
@@ -132,8 +130,8 @@
           </div>
            <!-- Sauce Selection -->
            <div class="form-group">
-            <label class="lead">Select Your Sauce:</label>
-            <select name="noodle" id="noodle">
+            <p class="lead">Select Your Sauce:</p>
+            <select name="sauce" id="sauce">
               <option value="white wine">White Wine</option>
               <option value="tomato">Tomato</option>
               <option value="pesto">Pesto</option>
@@ -143,10 +141,10 @@
           <div class="form-group">
             <p class="lead">Select Your Additions:</p>
             <input type="checkbox" name="addOns" value="cheese"> Cheese<br>
-            <input type="checkbox" name="addOns" value="mushrooms"> Peppers<br>
-            <input type="checkbox" name="addOns" value="veggies"> Mushrooms<br>
-            <input type="checkbox" name="addOns" value="meat"> Pineapple<br>
-            <input type="checkbox" name="addOns" value="shrimp"> Pepperoni<br>
+            <input type="checkbox" name="addOns" value="mushrooms"> Mushrooms<br>
+            <input type="checkbox" name="addOns" value="veggies"> Veggies<br>
+            <input type="checkbox" name="addOns" value="meat"> Meat<br>
+            <input type="checkbox" name="addOns" value="shrimp"> Shrimp<br>
           </div>
           <button type="submit" class="btn btn-dark">Add pasta to cart</button>
         </form>
@@ -160,8 +158,8 @@
         <form id="dessertOrderForm">
           <!-- Size Selection -->
           <div class="form-group">
-            <label class="lead">Select Your Dessert:</label>
-            <select name="size" id="size">
+            <p class="lead">Select Your Dessert:</p>
+            <select name="dessert" id="dessert">
               <option value="Fritule">Fritule</option>
               <option value="Makovnjaca">Makovnjaca</option>
               <option value="Medimurska gibanbica">Medimurska gibanbica</option>
@@ -204,9 +202,8 @@
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
+  <br><br><br>
+
   <!-- Footer -->
   <nav class="navbar fixed-bottom navbar-light" style="background-color:#d1dbe8">
     <p class="navbar-text font-weight-bold">&copy; 2020 Mamma Marija's Croatian Pizza Parlor</p>

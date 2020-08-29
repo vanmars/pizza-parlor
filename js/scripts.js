@@ -1,3 +1,6 @@
+// BUGS
+// * Small pizza without any topic keeps getting added to pizzaOrder
+
 // BUSINESS LOGIC //
 // Shopping Cart Constructor ---------------
 function ShoppingCart () {
@@ -139,59 +142,53 @@ function Dessert (dessert, price) {
 
 // User Interface Logic
 $(document).ready(function(){
-  // Menu Card Event Handler
+  // Menu Card Event
   $(".menuCard").click(function() {
     // $(".orderAndMenuCardsDiv").slideUp();
     $("#menuDiv").slideToggle("slow");
-  })
-  // Order Card Event Handler
+  });
+
+  // Order Card Event
   $(".orderCard").click(function(){
     // Show Shopping Cart Div
     $(".orderAndMenuCardsDiv").slideUp();
     $(".customerCart").slideDown();
-
     // Create new Shopping Cart
     let newCart = new ShoppingCart();
 
-    // Shopping Cart Event Handlers
-    // Add Pizza
+    // Add Pizza Event
     $("#addPizzaButton").click(function(){
       $(".pizzaOrderOptionsDiv").show();
-
-      // Store Pizza Form Input
+      
+      // Listen for Pizza Form Submit
       $("form#pizzaOrderForm").submit(function(event){
         event.preventDefault();
         // Capture Form Content
         const sizeInput = $("#size").val();
         const toppingsInput = [];
-        $("input:checkbox:checked").each(function(){
+        $("input:checkbox[name=topping]:checked").each(function(){
           const topping = $(this).val();
-          toppingsInput.push(topping)
+          toppingsInput.push(topping);
         });
-
         // Create New Pizza Object with User Input
         let newPizza = new Pizza(sizeInput, toppingsInput);
-
         // Calculate Cost of Pizza 
         let newPrice = newPizza.calculateCost();
-
         // Add Pizza to newCart and Display to Site
         newCart.addPizzaOrder(newPizza)
         $("#pizzaList").append("<li>" + newPizza.size + " - " + newPizza.toppings.join(", ")  + " - $" + newPizza.price + "</li>");
-
         // Shopping Cart Total Should Be Calculated and Appended 
         let newCartTotal = newCart.calculateTotal();
         $("#cartTotalReturn").text(newCartTotal);
-        
-        // New item should show up in pizza shopping cart
-        
-
         // Pizza Order Form Should Close
         $("form#pizzaOrderForm")[0].reset();
         $(".pizzaOrderOptionsDiv").slideUp(); 
       });
+
     });
+
   });
+
 });
 
 

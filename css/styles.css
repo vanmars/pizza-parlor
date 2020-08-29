@@ -9,11 +9,11 @@ body {
 
 
 /* Hide Order Details */
-.customerCart, .pizzaOrderOptionsDiv, #menuDiv {
+.customerCart, #menuDiv, .pizzaOrderOptionsDiv, .pastaOrderOptionsDiv, .dessertOrderOptionsDiv {
   display: none;
 }
 
 /* Shopping Cart Buttons */
 .shoppingCartButtons {
-  width: 25%;
+  width: 30%;
 }
