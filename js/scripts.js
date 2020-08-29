@@ -72,21 +72,21 @@ Pizza.prototype.calculateCost = function(){
   for (topping of this.toppings) {
     toppingsPrice += toppingsCost[topping]
   };
-  let totalPrice = (sizePrice + toppingsPrice).toFixed(2);
+  let totalPrice = sizePrice + toppingsPrice;
   this.price = totalPrice
-  return totalPrice;
+  return ((totalPrice).toFixed(2));
 };
 
 // Pasta Cost Objects
 let noodleCost = {
-  surlice: 6.00, 
-  pljukanci: 6.50,
-  fuzi: 7.00,
-  krafi: 7.50
+  Surlice: 6.00, 
+  Pljukanci: 6.50,
+  Fuzi: 7.00,
+  Krafi: 7.50
 };
 
 let sauceCost = {
-  butter: .50,
+  "white wine": .50,
   tomato: .75,
   petso: 1.00
 }
@@ -147,7 +147,7 @@ $(document).ready(function(){
   // Order Card Event Handler
   $(".orderCard").click(function(){
     // Show Shopping Cart Div
-    // $(".orderAndMenuCardsDiv").slideUp();
+    $(".orderAndMenuCardsDiv").slideUp();
     $(".customerCart").slideDown();
 
     // Create new Shopping Cart
