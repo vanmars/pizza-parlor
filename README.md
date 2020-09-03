@@ -27,8 +27,11 @@ To View Project:
 * Open a web browser of your choice and navigate to the following page: https://vanmars.github.io/pizza-parlor/.
 
 To Extend This Project:
-* Clone this project using the 'git clone' command in terminal.
-* Open the cloned repo in a text editor of your choice.
+* Clone this project using the 'git clone' command in terminal/command line.
+* Open the cloned folder in a text editor of your choice.
+* Navigate to the 'index.html' page to make changes to the homepage.
+* Navigate to the 'about.html' page to make changes to the about page.
+* Navigate to the 'scripts.js' file in the 'js' directory to change business and user interface logic.
 
 ## Known Bugs
 
