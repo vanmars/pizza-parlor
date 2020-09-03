@@ -29,8 +29,9 @@ To View Project:
 To Extend This Project:
 * Clone this project using the 'git clone' command in terminal/command line.
 * Open the cloned folder in a text editor of your choice.
-* Navigate to the 'index.html' page to make changes to the homepage.
-* Navigate to the 'about.html' page to make changes to the about page.
+* Right click on index.html and select 'Reveal in Finder' to view in browser.
+* Contribute to the 'index.html' page to make changes to the homepage.
+* Contribute to the 'about.html' page to make changes to the about page.
 * Navigate to the 'scripts.js' file in the 'js' directory to change business and user interface logic.
 
 ## Known Bugs

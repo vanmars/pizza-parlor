@@ -1,7 +1,7 @@
 // BUSINESS LOGIC //
 
 // Shopping Cart  --------------- --------------- ---------------
-// Shopping Cart Constructor ---------------
+// Shopping Cart Constructor
 function ShoppingCart () {
   this.pizzaOrder = [];
   this.pastaOrder = [];
@@ -44,38 +44,35 @@ ShoppingCart.prototype.calculateTotal = function(){
 };
 
 // Pizza  --------------- --------------- ---------------
-// Pizza Cost Objects
-let sizeCost = {
-  Small: 5.00,   //Small
-  Medium: 8.00,   // Medium
-  Large: 10.00,  // Large
-  "Extra large": 12.00   // Extra Large
-};
-
-let toppingsCost = {
-  cheese: 0.50,    
-  peppers: 1.00,      
-  mushrooms: 1.25,      
-  pineapple: 1.50,    
-  pepperoni: 1.00,     
-  sausage: 1.50,    
-  ham : 2.00             
-};
-
-// Pizza Constructor  ---------------
+// Pizza Constructor
 function Pizza (size, toppings){
   this.size = size,
-  this.toppings = toppings
+  this.toppings = toppings,
+  this.sizeCost = {
+      Small: 5.00,   
+      Medium: 8.00,   
+      Large: 10.00,  
+      "Extra large": 12.00   
+    },
+  this.toppingsCost = {
+    cheese: 0.50,    
+    peppers: 1.00,      
+    mushrooms: 1.25,      
+    pineapple: 1.50,    
+    pepperoni: 1.00,     
+    sausage: 1.50,    
+    ham : 2.00             
+  }
 };
 
 // Pizza Prototype: Calculate Cost Method 
 Pizza.prototype.calculateCost = function(){
   // Size
-  let sizePrice = sizeCost[this.size];
+  let sizePrice = this.sizeCost[this.size];
   // Toppings
   let toppingsPrice = 0;
   for (topping of this.toppings) {
-    toppingsPrice += toppingsCost[topping]
+    toppingsPrice += this.toppingsCost[topping]
   };
   let totalPrice = sizePrice + toppingsPrice;
   console.log("Pizza total type:", typeof(totalPrice));
@@ -84,46 +81,41 @@ Pizza.prototype.calculateCost = function(){
 };
 
 // Pasta  --------------- --------------- ---------------
-// Pasta Cost Objects
-let noodleCost = {
-  Surlice: 6.00, 
-  Pljukanci: 6.50,
-  Fuzi: 7.00,
-  Krafi: 7.50
-};
-
-let sauceCost = {
-  "white wine": .50,
-  tomato: .75,
-  pesto: 1.00
-};
-
-let addOnsCost = {
-  cheese: .50,
-  mushrooms: .50,
-  veggies: .75,
-  meat: 1.00,
-  shrimp: 1.50
-};
-
-// Pasta Constructor ---------------
+// Pasta Constructor
 function Pasta (noodle, sauce, addOns) {
   this.noodle = noodle;
   this.sauce = sauce;
   this.addOns = addOns;
+  this.noodleCost = {
+    Surlice: 6.00, 
+    Pljukanci: 6.50,
+    Fuzi: 7.00,
+    Krafi: 7.50
+  },
+  this.sauceCost = {
+    "white wine": .50,
+    tomato: .75,
+    pesto: 1.00
+  },
+  this.addOnsCost = {
+    cheese: .50,
+    mushrooms: .50,
+    veggies: .75,
+    meat: 1.00,
+    shrimp: 1.50
+  };
 };
 
 // Pasta Prototype: Calculate Cost Method 
 Pasta.prototype.calculateCost = function(){
   // Noodles
-  let noodlePrice = noodleCost[this.noodle];
+  let noodlePrice = this.noodleCost[this.noodle];
   // Sauce
-  let saucePrice = sauceCost[this.sauce];
+  let saucePrice = this.sauceCost[this.sauce];
   // Add-Ons
   let addOnsPrice = 0;
-  
   for (addOn of this.addOns) {
-    addOnsPrice += addOnsCost[addOn]
+    addOnsPrice += this.addOnsCost[addOn]
   };
   let totalPrice = (noodlePrice + saucePrice + addOnsPrice);
   console.log("Pasta total type:", typeof(totalPrice));
@@ -132,28 +124,24 @@ Pasta.prototype.calculateCost = function(){
 };
 
 // Desserts  --------------- --------------- ---------------
-// Desserts Object
-let desserts = {
-  Fritule: 3.00,
-  Makovnjaca: 4.00,
-  "Medimurska gibanbica": 5.00
-}
-
 // Dessert Constructor
 function Dessert (dessert) {
   this.dessert = dessert,
-  this.price = desserts[this.dessert];
-}
+  this.desserts = {
+    Fritule: 3.00,
+    Makovnjaca: 4.00,
+    "Medimurska gibanbica": 5.00
+  },
+  this.price = this.desserts[this.dessert]
+};
 
 // USER INTERFACE LOGIC
 $(document).ready(function(){
-
   // Menu Card Event
   $(".menuCard").click(function() {
     // $(".orderAndMenuCardsDiv").slideUp();
     $("#menuDiv").slideToggle("slow");
   });
-
   // Order Card Event
   $(".orderCard").click(function(){
     // Show Shopping Cart Div
@@ -161,7 +149,6 @@ $(document).ready(function(){
     $(".customerCart").slideDown();
     // Create new Shopping Cart
     let newCart = new ShoppingCart();
-
      // Listen for Pizza Form Submit
      $("form#pizzaOrderForm").submit(function(event){
       event.preventDefault();
@@ -189,7 +176,6 @@ $(document).ready(function(){
       // Pizza Order Form Should Close
       // $(".pizzaOrderOptionsDiv").slideUp(); 
     });
-  
     // Listen for Pasta Form Submit
     $("form#pastaOrderForm").submit(function(event){
       console.log("Pasta Submitted!")
@@ -215,7 +201,6 @@ $(document).ready(function(){
       // Pasta Order Form Should Reset
       $("form#pastaOrderForm")[0].reset();
     });
-
     // Listen for Desert Form Submit
     $("form#dessertOrderForm").submit(function(event){
       console.log("Dessert Submitted!")
@@ -234,7 +219,6 @@ $(document).ready(function(){
       // Dessert Order Form Should Reset
       $("form#dessertOrderForm")[0].reset();
     });
-
   });
 });
 
