@@ -39,7 +39,6 @@ ShoppingCart.prototype.calculateTotal = function(){
     Number(dessertTotal += dessert.price)
   };
   let cartTotal = (pizzaTotal + pastaTotal + dessertTotal);
-  console.log("Cart Total Type:", typeof(cartTotal));
   return cartTotal
 };
 
@@ -75,7 +74,6 @@ Pizza.prototype.calculateCost = function(){
     toppingsPrice += this.toppingsCost[topping]
   };
   let totalPrice = sizePrice + toppingsPrice;
-  console.log("Pizza total type:", typeof(totalPrice));
   this.price = totalPrice
   return ((totalPrice).toFixed(2));
 };
@@ -118,7 +116,6 @@ Pasta.prototype.calculateCost = function(){
     addOnsPrice += this.addOnsCost[addOn]
   };
   let totalPrice = (noodlePrice + saucePrice + addOnsPrice);
-  console.log("Pasta total type:", typeof(totalPrice));
   this.price = totalPrice
   return ((totalPrice).toFixed(2));
 };
@@ -152,7 +149,6 @@ $(document).ready(function(){
      // Listen for Pizza Form Submit
      $("form#pizzaOrderForm").submit(function(event){
       event.preventDefault();
-      console.log("Add pizza clicked")
       // Capture Form Content
       const sizeInput = $("#size").val();
       let toppingsInput = [];
@@ -160,8 +156,6 @@ $(document).ready(function(){
         const topping = $(this).val();
         toppingsInput.push(topping);
       });
-      console.log("Size Input", sizeInput)
-      console.log("Toppings Input", toppingsInput)
       // Create New Pizza Object with User Input
       let newPizza = new Pizza(sizeInput, toppingsInput);
       // Calculate Cost of Pizza 
@@ -178,7 +172,6 @@ $(document).ready(function(){
     });
     // Listen for Pasta Form Submit
     $("form#pastaOrderForm").submit(function(event){
-      console.log("Pasta Submitted!")
       event.preventDefault();
       // Capture Form Content
       const noodleInput = $("#noodle").val();
@@ -203,13 +196,11 @@ $(document).ready(function(){
     });
     // Listen for Desert Form Submit
     $("form#dessertOrderForm").submit(function(event){
-      console.log("Dessert Submitted!")
       event.preventDefault();
       // Capture Form Content
       const dessertInput = $("#dessert").val();
       // Create New Dessert Object with User Input
       let newDessert = new Dessert(dessertInput);
-      console.log("Desert: ", newDessert.dessert, "Price: ", newDessert.price);
       // Add Dessert to newCart and Display to Site
       newCart.addDessertOrder(newDessert);
       $("#dessertList").append("<li>"+ dessertInput + " -  $" + (newDessert.price.toFixed(2)) + "</li>");
